@@ -2,83 +2,94 @@
 # IE游览器单独写CSS样式的几种方法
 
 ## 1.CSS Hack 
-举例如下：
+		举例如下：
+```
 .box {  
-    background: gray; /* 基本的 */ <br>
-    background: pink\9; /* IE 8 及低于IE8版本 */<br>
-    *background: green; /* IE 7 及低于IE7版本 */<br>
-    _background: blue; /* IE 6 */<br>
+    background: gray; /* 基本的 */ 
+    background: pink\9; /* IE 8 及低于IE8版本 */
+    *background: green; /* IE 7 及低于IE7版本 */
+    _background: blue; /* IE 6 */
 }
-## 另外网上找到的下面这张表可以很清楚的像大家展示IE各版本的css hack。
+```
+`另外网上找到的下面这张表可以很清楚的像大家展示IE各版本的css hack。`
+
 <img src="cssHack.jpg">
-## 这里S代表standard标准模式，Q代表Quirks怪异模式 
+
+
+`这里S代表standard标准模式，Q代表Quirks怪异模式 `
+
 <br>
-## 2.条件注释
-### <!--[if lt IE 7]>版本小于IE7将看到这行<![endif]-->
-### <!--[if lte IE 7]>版本小于或等于IE7将看到这行<![endif]-->
-### <!--[if IE 7]>版本如果是IE7将看到这行<![endif]-->
-### <!--[if gt IE 7]>版本大于IE7将看到这行<![endif]-->
-#很明显具体格式是if 运算符 IE 版本号，运算符如果省略将意味着等于，否则请取lt（小于）、gt（大于）、lte（小于或等于）、gte（大于或等于），另外还可以进行感叹号（!）逻辑取非和 | 逻辑或等运算，这个将在第三种方法介绍中给出实例
 
-# 具体使用在html中这样写：
+# 2.条件注释
+```
+<!--[if lt IE 7]>版本小于IE7将看到这行<![endif]-->
+<!--[if lte IE 7]>版本小于或等于IE7将看到这行<![endif]-->
+<!--[if IE 7]>版本如果是IE7将看到这行<![endif]-->
+<!--[if gt IE 7]>版本大于IE7将看到这行<![endif]-->
+```
+		很明显具体格式是if 运算符 IE 版本号，运算符如果省略将意味着等于，否则请取lt（小于）、gt（大于）、lte（小于或等于）、gte（大于或等于），另外还可以进行感叹号（!）逻辑取非和 | 逻辑或等运算，这个将在第三种方法介绍中给出实例
 
-### <!--[if IE 6]>
-### <style type="text/css">
-###  /* 针对IE6定义的样式 */
-### </style>
-### <![endif]-->
- 当然除了定义style样式外我们还可以针对不同IE浏览器定义不同的内容，可以是script脚本或者其他显示或隐藏的内容等。
+		具体使用在html中这样写：
+```
+<!--[if IE 6]>
+<style type="text/css">
+ /* 针对IE6定义的样式 */
+</style>
+<![endif]-->
+```
+		当然除了定义style样式外我们还可以针对不同IE浏览器定义不同的内容，可以是script脚本或者其他显示或隐藏的内容等。
 
 # 3.条件注释 html 标签
  这种方案也是利用条件注释，但并不是对 CSS 使用条件注释，而是对 html 标签使用条件注释，引入不同的 class ，从而区分不同的 IE 以及其他浏览器。例如：
 
-### <!DOCTYPE html>
-### <!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
-### <!--[if IE 7 ]> <html class="ie7"> <![endif]-->
-### <!--[if IE 8 ]> <html class="ie8"> <![endif]-->
-### <!--[if IE 9 ]> <html class="ie9"> <![endif]-->
-### <!--[if (gt IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
-### <head>
-### <style type="text/css">
+```
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]> <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]> <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]> <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
+<head>
+<style type="text/css">
 .box {
-    color: #fff; <br>
-    padding: 5px 20px;<br>
-    background: gray; <br>
-}<br>
-.ie8 .box {<br>
-    background: pink;<br>
-}<br>
-.ie7 .box {<br>
-    background: green;<br>
-}<br>
-.ie6 .box {<br>
-    background: blue;<br>
-}<br>
-### </style>
-### </head>
-### <body>
-### <div class="box">
-### Content here
-### </div>
-### </body>
-### </html>
-
+    color: #fff; 
+    padding: 5px 20px;
+    background: gray; 
+}
+.ie8 .box {
+    background: pink;
+}
+.ie7 .box {
+    background: green;
+}
+.ie6 .box {
+    background: blue;
+}
+</style>
+</head>
+<body>
+<div class="box">
+Content here
+</div>
+</body>
+</html>
+```
 
 
 
 # 游览器兼容性总结
 
-# 游览器内核(渲染引擎)
-### 1.Trident 代表游览器:IE...
-###  2.Gecko 代表游览器:Mozilla Firefox...
-###  3.Presto 代表游览器:Opera...
-###  4.Webkit 代表游览器:Safari Chrome...
-###  5.Blink 由Google和Opera开发的游览器排版引擎2013年4月发布。
+## 游览器内核(渲染引擎)
+*  1.Trident 代表游览器:IE...
+*  2.Gecko 代表游览器:Mozilla Firefox...
+*  3.Presto 代表游览器:Opera...
+*  4.Webkit 代表游览器:Safari Chrome...
+*  5.Blink 由Google和Opera开发的游览器排版引擎2013年4月发布。
 
-###  1.CSS Bug: CSS样式在各游览器中解析不一致的情况，或者说CSS样式在游览器中不能正确显示的问题称为CSS Bug.
-###  2.CSS Hack: CSS中,Hack是指一种兼容CSS在不同游览器中正确显示的技巧方法，因为它们都属于个人对CSS代码的非官方修改，或非官方补丁。
-###  3.Filter: 表示过滤器的意思，它是一种对特定的游览器或游览器组显示或隐藏规则或声明的方法。本质上，Filter是一种用来过滤不同游览器的Hack类型。
-###  使用Hack带来的一些副作用：降低了CSS代码的可读性，增加了代码的负担。
+*  1.CSS Bug: CSS样式在各游览器中解析不一致的情况，或者说CSS样式在游览器中不能正确显示的问题称为CSS Bug.
+*  2.CSS Hack: CSS中,Hack是指一种兼容CSS在不同游览器中正确显示的技巧方法，因为它们都属于个人对CSS代码的非官方修改，或非官方补丁。
+*  3.Filter: 表示过滤器的意思，它是一种对特定的游览器或游览器组显示或隐藏规则或声明的方法。本质上，Filter是一种用来过滤不同游览器的Hack类型。
+*  使用Hack带来的一些副作用：降低了CSS代码的可读性，增加了代码的负担。
 
 
 # IE低版本 常见CSS解析Bug及Hack
@@ -113,10 +124,10 @@ Hack: 给右面的浮动元素添加对应的清楚浮动声明 *clear:right;
 IE中写法 filter:alpha(opacity=value)(value取值范围1-100整数)
 
 ### 8.li列表的BUG
-问题描述：li中嵌套a标签时，父元素li有float:left;子元素a没设置浮动的情况下会出现垂直bug；
-Hack：给父元素li和子元素a都设置浮动
-问题描述：当给li中的a转成block，并且有height,float时，li中没设置浮动会出现阶梯显示；(针对所有游览器)
-Hack: 同时给li加float;
+>问题描述：li中嵌套a标签时，父元素li有float:left;子元素a没设置浮动的情况下会出现垂直bug；
+>Hack：给父元素li和子元素a都设置浮动
+>>问题描述：当给li中的a转成block，并且有height,float时，li中没设置浮动会出现阶梯显示；(针对所有游览器)
+>>Hack: 同时给li加float;
 
 ### 9.当前元素(父元素里面第一个子元素)与父元素没有设置任何浮动的情况下，设置margin-top后，会错误的把margin-top加在父级元素上（针对IE8及以上游览器及其他游览器）
 Hack1: 给父级元素添加overflow:hidden;(推荐使用)
