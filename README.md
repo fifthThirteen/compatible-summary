@@ -92,7 +92,7 @@ Content here
 *  使用Hack带来的一些副作用：降低了CSS代码的可读性，增加了代码的负担。
 
 
-# IE低版本 常见CSS解析Bug及Hack
+# 常见CSS解析Bug及Hack
 
 ###  1. 图片有边框
 问题描述：当图片放在 a 标签内 会在IE上出现边框
@@ -132,3 +132,25 @@ IE中写法 filter:alpha(opacity=value)(value取值范围1-100整数)
 ### 9.当前元素(父元素里面第一个子元素)与父元素没有设置任何浮动的情况下，设置margin-top后，会错误的把margin-top加在父级元素上（针对IE8及以上游览器及其他游览器）
 Hack1: 给父级元素添加overflow:hidden;(推荐使用)
 Hack2: 给父元素或子元素添加浮动
+
+### 10.png24位的图片在iE6浏览器上出现背景，解决方案是做成PNG8.
+
+### 11.浏览器默认的margin和padding不同。解决方案是加一个全局的*{margin:0;padding:0;}来统一。
+
+### 12.Chrome字体BUG
+问题描述：中文界面下默认会将小于 12px 的文本强制按照 12px 显示
+Hack:可通过加入 CSS 属性 -webkit-text-size-adjust: none; 解决。
+
+### 13. 超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了解决方法是改变CSS属性的排列顺序:
+    `L-V-H-A :  a:link {} a:visited {} a:hover {} a:active {}`
+
+
+# 常见JS兼容性问题
+
+### 1.IE和Firefox获取常规属性方法不同
+    问题描述：IE下,可以使用获取常规属性的方法来获取自定义属性,也可以使用getAttribute()获取自定义属性;Firefox下,只能使用getAttribute()获取自定义属性。
+    解决方法:统一通过getAttribute()获取自定义属性。
+
+### 2.IE与Firefox Event对象属性不同
+    问题描述：IE下,even对象有x,y属性,但是没有pageX,pageY属性;Firefox下,event对象有pageX,pageY属性,但是没有x,y属性。
+    解决方法：（条件注释）缺点是在IE浏览器下可能会增加额外的HTTP请求数。
