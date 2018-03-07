@@ -41,19 +41,19 @@
 ### <head>
 ### <style type="text/css">
 .box {
-    color: #fff;
-    padding: 5px 20px;
-    background: gray; 
-}
-.ie8 .box {
-    background: pink;
-}
-.ie7 .box {
-    background: green;
-}
-.ie6 .box {
-    background: blue;
-}
+    color: #fff; <br>
+    padding: 5px 20px;<br>
+    background: gray; <br>
+}<br>
+.ie8 .box {<br>
+    background: pink;<br>
+}<br>
+.ie7 .box {<br>
+    background: green;<br>
+}<br>
+.ie6 .box {<br>
+    background: blue;<br>
+}<br>
 ### </style>
 ### </head>
 ### <body>
