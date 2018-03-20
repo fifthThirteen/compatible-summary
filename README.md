@@ -209,7 +209,7 @@ IE中写法 filter:alpha(opacity=value)(value取值范围1-100整数)
 
 ```
 <style type="text/css">
-    ul , li {
+    ul {
         list-style: none;
     }
     li {
@@ -271,6 +271,31 @@ Hack:可通过加入 CSS 属性 -webkit-text-size-adjust: none; 解决。
 ### 12. 超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了解决方法是改变CSS属性的排列顺序:
     `L-V-H-A :  a:link {} a:visited {} a:hover {} a:active {}`
 
+### 13.内容超过容器长度时，无法显示滚动条(IE7)
+Hack_Code:
+```
+<style type="text/css">
+    div {
+        min-height: 80px;
+        height: 80px;
+        overflow: auto;
+        overflow-x:hidden; 
+        width: 100px;
+        background-color: #CCC;
+        color: #FFF;
+        *overflow: scroll;
+    }
+    div > p {
+        width: 100px;
+        /*word-wrap:break-word;*/ /*如果是数字或者字母，会撑破容器，不会自动折行*/
+    }
+</style>
+<body>
+    <div>
+        <p>你好你好你好年反倒是发发打发斯蒂芬发送到发送到发送到发送到发斯蒂芬</p>
+    </div>
+</body>
+```
 
 # 常见JS兼容性问题
 

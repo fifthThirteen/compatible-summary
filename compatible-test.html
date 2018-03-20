@@ -5,29 +5,24 @@
 	<title>游览器兼容性总结</title>
 </head>
 <style type="text/css">
-	html,body {
-		margin: 0;
-		padding: 0;
-	}
-	.container {
-		display: block;
-		margin-top: 20px;
-		width: 200px;
-		height: 200px;
-		background-color: #ccc;
-		color: #FFF;
-	}
-	.container > div {
-		margin-top: 10px;
+	div	{
+		min-height: 80px;
+		height: 80px;
+		overflow: auto;
+		overflow-x:hidden; 
 		width: 100px;
-		height: 100px;
-		background-color: red;
+		background-color: #CCC;
 		color: #FFF;
+		*overflow: scroll;
+	}
+	div > p {
+		width: 100px;
+		/*word-wrap:break-word;*/
 	}
 </style>
 <body>
-	<div class="container">
-		<div>margin-top: 10px</div>
+	<div>
+		<p>你好你好你好年反倒是发发打发斯蒂芬发送到发送到发送到发送到发斯蒂芬</p>
 	</div>
 </body>
 </html>
