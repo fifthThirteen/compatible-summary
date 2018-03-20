@@ -180,7 +180,7 @@ Hack: 给右面的浮动元素添加对应的清楚浮动声明 *clear:right;
     </div>
 </body>
 ```
-<a href="http://blog.csdn.net/qq_20087231/article/details/79630426" rel="external nofollow" target="_blank" title="清除浮动的各种方法及原理">清除浮动的各种方法及原理</a>
+<a href="http://blog.csdn.net/qq_20087231/article/details/79630426" rel="nofollow" target="_blank" title="清除浮动的各种方法及原理">清除浮动的各种方法及原理</a>
 
 ### 7.透明属性(IE8及以下版本)
 兼容其他游览器写法 opacity:value;(value取值范围0-1)；
