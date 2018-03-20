@@ -109,7 +109,7 @@ Hack_Code:<br />
 嵌套在a标签中示例图片：<br />
 <img src="images/test2.png" alt="示例2-img标签嵌套在a标签中会产生3-6px的间隙" width="200" height="100"><br />
 嵌套在div标签中示例图片：<br />
-<img src="images/test2_div.png" alt="示例2-img标签嵌套在div标签中会产生3-6px的间隙" width="289" height="160"><br />
+<img src="images/test2_div.png" alt="示例2-img标签嵌套在div标签中会产生3-6px的间隙" width="379" height="160"><br />
 Hack: 给图片设置 display:block;或者 设置浮动(浮动会产生一个块级元素)<br />
 Hack_Code: <br />
 <img src="images/test2_code.png" alt="Hack: 给图片设置 display:block;或者 设置浮动(浮动会产生一个块级元素)">
