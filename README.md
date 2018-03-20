@@ -6,9 +6,11 @@
 ```
 .box {  
     background: gray; /* 基本的 */ 
-    background: pink\9; /* IE 8 及低于IE8版本 */
-    *background: green; /* IE 7 及低于IE7版本 */
-    _background: blue; /* IE 6 */
+    background: yellow\0; /* IE8/IE9/IE10/IE11生效 */
+    background: black\9\0;/* IE8/IE9/IE10/生效 */
+    background: pink\9; /* IE6/IE7/IE8/IE9/IE10生效 */
+    *background: green; /* IE6/IE7生效 */
+    _background: blue; /* IE6生效 */
 }
 ```
 `另外网上找到的下面这张表可以很清楚的像大家展示IE各版本的css hack。`
@@ -94,13 +96,17 @@ Content here
 
 # 常见CSS解析Bug及Hack
 
-###  1. 图片有边框
-问题描述：当图片放在 a 标签内 会在IE上出现边框
-Hack：给图片加border:0;或者border:none;
+###  1. 图片有边框(IE6,7,8,9)
+问题描述：当图片放在 a 标签内 会在IE上出现蓝色边框<br />
+示例图片：<br />
+<img src="images/test1.png" alt="当图片放在 a 标签内 会在IE上出现蓝色边框" width="200" height="100"><br />
+Hack：给图片加border:0;或者border:none;<br />
+Hack_Code:<br />
+<img src="images/test1_code.png" alt="给图片加border:0;或者border:none;"><br />
 
-### 2. 图片间隙
+### 2. 图片间隙(所有游览器)
 问题描述：img标签嵌套在其他标签(a,div等等)中会产生3-6px的间隙<br />
-示例：<br />
+示例图片：<br />
 <img src="images/test2.png" alt="示例2-img标签嵌套在其他标签(a,div等等)中会产生3-6px的间隙" width="200" height="100"><br />
 Hack: 给图片设置 display:block;或者 设置浮动(浮动会产生一个块级元素)<br />
 Hack_Code: <br />
