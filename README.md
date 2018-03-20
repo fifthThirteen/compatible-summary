@@ -100,9 +100,11 @@ Hack：给图片加border:0;或者border:none;
 
 ### 2. 图片间隙
 问题描述：img标签嵌套在其他标签(a,div等等)中会产生3-6px的间隙<br />
-示例：<img src="images/test2.png" alt="示例2-img标签嵌套在其他标签(a,div等等)中会产生3-6px的间隙" width="200" height="100"><br />
-Hack: 给图片设置 display:block;或者 设置浮动(浮动会产生一个块级元素)
-Hack_Code: <img src="images/test2_code.png" alt="给图片设置 display:block;或者 设置浮动(浮动会产生一个块级元素)">
+示例：<br />
+<img src="images/test2.png" alt="示例2-img标签嵌套在其他标签(a,div等等)中会产生3-6px的间隙" width="200" height="100"><br />
+Hack: 给图片设置 display:block;或者 设置浮动(浮动会产生一个块级元素)<br />
+Hack_Code: <br />
+<img src="images/test2_code.png" alt="给图片设置 display:block;或者 设置浮动(浮动会产生一个块级元素)"><br />
 
 ### 3. 双倍浮向(双倍边距) (只在IE6出现)
 问题描述：当IE6及更低版本游览器在解析浮动元素时，会错误的把浮向边边界(margin)加倍显示。
