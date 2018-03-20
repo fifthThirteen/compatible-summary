@@ -6,15 +6,17 @@
 </head>
 <style type="text/css">
 	label,input,button {
-		/*vertical-align:middle;*/
-		font-family: "Arail";
 		float: left;
+		font-family: "Arail";
 	}
 	label {
 		height: 21px;
 		line-height: 21px;
 	}
 	input:not([type="button"]) {
+		/* :not 不支持IE8及以下版本
+			IE6不支持属性选择器
+		*/
 		height: 15px;
 		line-height: 15px;
 		padding: 2px;
@@ -34,7 +36,6 @@
 		<input type="text" name="name" placeholder="Please fill your name!">
 		<label for="password">Password:</label>
 		<input type="password" name="password" placeholder="Please fill your Password!">
-		<!-- <input value="login" type="button"> -->
 		<button>login</button>
 	</form>
 </body>
