@@ -5,33 +5,29 @@
 	<title>游览器兼容性总结</title>
 </head>
 <style type="text/css">
+	html,body {
+		margin: 0;
+		padding: 0;
+	}
 	.container {
-		width: 100%;
-		background-color: #CCC;
+		display: block;
+		margin-top: 20px;
+		width: 200px;
+		height: 200px;
+		background-color: #ccc;
+		color: #FFF;
 	}
-	.left {
-		float: left;
+	.container > div {
+		margin-top: 10px;
+		width: 100px;
+		height: 100px;
 		background-color: red;
-		width: 50%;
-		height: 60px;
-	}
-	.right {
-		float: right;
-		background-color: blue;
-		width: 50%;
-		height: 60px;
-		*clear: right;
-	}
-	.right:after {
-	   content:""; 
-	   display: block; 
-	   clear:both; 
+		color: #FFF;
 	}
 </style>
 <body>
 	<div class="container">
-		<div class="left"></div>
-		<div class="right"></div>
+		<div>margin-top: 10px</div>
 	</div>
 </body>
 </html>

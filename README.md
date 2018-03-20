@@ -180,31 +180,95 @@ Hack: 给右面的浮动元素添加对应的清楚浮动声明 *clear:right;
     </div>
 </body>
 ```
-<a href="http://blog.csdn.net/qq_20087231/article/details/79630426" rel="nofollow" target="_blank" title="清除浮动的各种方法及原理">清除浮动的各种方法及原理</a>
+<a href="http://blog.csdn.net/qq_20087231/article/details/79630426" rel="external nofollow" target="_blank" title="清除浮动的各种方法及原理">清除浮动的各种方法及原理</a>
 
-### 7.透明属性(IE8及以下版本)
+### 7.不完全透明属性(IE8及以下版本)
 兼容其他游览器写法 opacity:value;(value取值范围0-1)；
 IE中写法 filter:alpha(opacity=value)(value取值范围1-100整数)
+```
+<style type="text/css">
+    .container {
+        position:static;/* IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 */
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        opacity: 0.5;
+        filter:alpha(opacity=50);
+        *zoom:1; /*激活IE6、7的haslayout属性，让它读懂alpha */
+    }
+</style>
+<body>
+    <div class="container">
+    </div>
+</body>
+```
 
 ### 8.li列表的BUG
->问题描述：li中嵌套a标签时，父元素li有float:left;子元素a没设置浮动的情况下会出现垂直bug；
->Hack：给父元素li和子元素a都设置浮动
->>问题描述：当给li中的a转成block，并且有height,float时，li中没设置浮动会出现阶梯显示；(针对所有游览器)
->>Hack: 同时给li加float;
+>问题描述：当给li中的a设置float时，li中没设置浮动会出现阶梯显示（IE7）IE6中无样式；
+>> Hack: 同时给li加float，样式设置在li中;
+
+```
+<style type="text/css">
+    ul , li {
+        list-style: none;
+    }
+    li {
+        float: left;
+        margin-right: 10px;
+        padding: 20px;
+        background-color: #CCC;
+    }
+    li > a {
+        float: left;
+    }
+    li:last-child:after {
+        display: block;
+        content: '';
+        clear: both;
+    }
+</style>
+<body>
+    <ul>
+        <li>
+            <a href="">
+                1
+            </a>
+        </li>
+        <li>
+            <a href="">
+                2
+            </a>
+        </li>
+    </ul>
+</body>
+```
 
 ### 9.当前元素(父元素里面第一个子元素)与父元素没有设置任何浮动的情况下，设置margin-top后，会错误的把margin-top加在父级元素上（针对IE8及以上游览器及其他游览器）
+`原因是根据BFC布局规则第二条`
+>Box垂直方向的距离由margin决定,属于同一个BFC的两个相邻Box的margin会发生重叠。注意：发生重叠后，外边距的高度等于两个发生重叠的外边距的高度中的较大者
+
+<br />
+<img src="images/test9.png">
+<br>
+Hack: 对子元素进行重新触发BFC，详情见 <a href="http://blog.csdn.net/qq_20087231/article/details/79630426">详解 清除浮动 的多种方式（clearfix）</a>中的BFC规则详解 <br>
 Hack1: 给父级元素添加overflow:hidden;(推荐使用)
 Hack2: 给父元素或子元素添加浮动
 
-### 10.png24位的图片在iE6浏览器上出现背景，解决方案是做成PNG8.
+`Tips:触发BFC的条件 `
+* 根元素 
+* float （left，right） 
+* overflow 除了visible 以外的值（hidden，auto，scroll ） 
+* display (table-cell，table-caption，inline-block) 
+* position（absolute，fixed） 
 
-### 11.浏览器默认的margin和padding不同。解决方案是加一个全局的*{margin:0;padding:0;}来统一。
+### 10.浏览器默认的margin和padding不同。解决方案是加一个全局的*{margin:0;padding:0;}来统一。
+Hack:<a href="http://blog.csdn.net/qq_20087231/article/details/79633260">各大网站初始化样式</a>
 
-### 12.Chrome字体BUG
+### 11.Chrome字体BUG
 问题描述：中文界面下默认会将小于 12px 的文本强制按照 12px 显示
 Hack:可通过加入 CSS 属性 -webkit-text-size-adjust: none; 解决。
 
-### 13. 超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了解决方法是改变CSS属性的排列顺序:
+### 12. 超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了解决方法是改变CSS属性的排列顺序:
     `L-V-H-A :  a:link {} a:visited {} a:hover {} a:active {}`
 
 
