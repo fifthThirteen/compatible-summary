@@ -5,38 +5,33 @@
 	<title>游览器兼容性总结</title>
 </head>
 <style type="text/css">
-	label,input,button {
+	.container {
+		width: 100%;
+		background-color: #CCC;
+	}
+	.left {
 		float: left;
-		font-family: "Arail";
+		background-color: red;
+		width: 50%;
+		height: 60px;
 	}
-	label {
-		height: 21px;
-		line-height: 21px;
+	.right {
+		float: right;
+		background-color: blue;
+		width: 50%;
+		height: 60px;
+		*clear: right;
 	}
-	input:not([type="button"]) {
-		/* :not 不支持IE8及以下版本
-			IE6不支持属性选择器
-		*/
-		height: 15px;
-		line-height: 15px;
-		padding: 2px;
-		border-width: 1px; 
-	}
-	input[type="button"],button {
-		height: 21px;
-		line-height: 15px;
-		padding: 2px 6px;
-		border: 1px solid #CCC;
-		background-color: rgb(221,221,221);
+	.right:after {
+	   content:""; 
+	   display: block; 
+	   clear:both; 
 	}
 </style>
 <body>
-	<form>
-		<label for="name">Name:</label>
-		<input type="text" name="name" placeholder="Please fill your name!">
-		<label for="password">Password:</label>
-		<input type="password" name="password" placeholder="Please fill your Password!">
-		<button>login</button>
-	</form>
+	<div class="container">
+		<div class="left"></div>
+		<div class="right"></div>
+	</div>
 </body>
 </html>

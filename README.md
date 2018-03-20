@@ -10,6 +10,7 @@
     background: black\9\0;/* IE8/IE9/IE10/生效 */
     background: pink\9; /* IE6/IE7/IE8/IE9/IE10生效 */
     *background: green; /* IE6/IE7生效 */
+    +background: green; /* IE6/IE7生效 */
     _background: blue; /* IE6生效 */
 }
 ```
@@ -147,6 +148,39 @@ Hack_Code:<br>
 ### 6.百分比bug
 问题描述：在IE7及以下版本中解析百分比时，会按四舍五入方式计算从而导致50%加50%大于100%的情况。（也会受到系统影响）
 Hack: 给右面的浮动元素添加对应的清楚浮动声明 *clear:right; 
+```
+<style type="text/css">
+    .container {
+        width: 100%;
+        background-color: #CCC;
+    }
+    .left {
+        float: left;
+        background-color: red;
+        width: 50%;
+        height: 60px;
+    }
+    .right {
+        float: right;
+        background-color: blue;
+        width: 50%;
+        height: 60px;
+        *clear: right;
+    }
+    .right:after {
+       content:""; 
+       display: block; 
+       clear:both; 
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+```
+`<a href="http://blog.csdn.net/qq_20087231/article/details/79630426" rel="external nofollow ">清除浮动的各种方法及原理</a>`
 
 ### 7.透明属性(IE8及以下版本)
 兼容其他游览器写法 opacity:value;(value取值范围0-1)；
