@@ -102,7 +102,7 @@ Content here
 <img src="images/test1.png" alt="当图片放在 a 标签内 会在IE上出现蓝色边框" width="200" height="100"><br />
 Hack：给图片加border:0;或者border:none;<br />
 Hack_Code:<br />
-<img src="images/test1_code.png" alt="给图片加border:0;或者border:none;"><br />
+<img src="images/test1_code.png" alt="Hack: 给图片加border:0;或者border:none;"><br />
 
 ### 2. 图片间隙(所有游览器)
 问题描述：img标签嵌套在其他标签(a,div等等)中会产生3-6px的间隙<br />
@@ -110,11 +110,17 @@ Hack_Code:<br />
 <img src="images/test2.png" alt="示例2-img标签嵌套在其他标签(a,div等等)中会产生3-6px的间隙" width="200" height="100"><br />
 Hack: 给图片设置 display:block;或者 设置浮动(浮动会产生一个块级元素)<br />
 Hack_Code: <br />
-<img src="images/test2_code.png" alt="给图片设置 display:block;或者 设置浮动(浮动会产生一个块级元素)"><br />
+<img src="images/test2_code.png" alt="Hack: 给图片设置 display:block;或者 设置浮动(浮动会产生一个块级元素)"><br />
 
-### 3. 双倍浮向(双倍边距) (只在IE6出现)
-问题描述：当IE6及更低版本游览器在解析浮动元素时，会错误的把浮向边边界(margin)加倍显示。
-Hack: 给浮动元素添加声明 _display:inline(_只针对IE6输出此行)
+### 3. 双倍浮向(双倍边距) (IE6)
+问题描述：当IE6及更低版本游览器在解析浮动元素时，会错误的把浮向边边界(margin)加倍显示。<br />
+正常示例图片：<br />
+<img src="images/test3_normal.png" alt="当IE6及更低版本游览器在解析浮动元素时，会错误的把浮向边边界(margin)加倍显示。" width="360" height="60"><br />
+IE6下示例图片：<br />
+<img src="images/test3_ie6.png" alt="当IE6及更低版本游览器在解析浮动元素时，会错误的把浮向边边界(margin)加倍显示。" width="360" height="60"><br />
+Hack: 给浮动元素添加声明 _display:inline(_只针对IE6输出此行) <br />
+Hack_Code:<br />
+<img src="images/test3_code.png" alt="Hack: 给浮动元素添加声明 _display:inline(_只针对IE6输出此行)"><br />
 
 ### 4. 默认高低(IE6 IE7)
 问题描述：在IE7及以下版本中，部分块元素拥有默认高度(16-20px左右)；
