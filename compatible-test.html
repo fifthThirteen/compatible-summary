@@ -5,35 +5,37 @@
 	<title>游览器兼容性总结</title>
 </head>
 <style type="text/css">
-	.container {
-		width: 360px;
-		height: 60px;
-		background-color: #ccc;
-		clear: both;
-	}
-	.left {
+	label,input,button {
+		/*vertical-align:middle;*/
+		font-family: "Arail";
 		float: left;
-		width: 120px;
-		height: 60px;
-		background-color: red;
 	}
-	.right {
-		_display: inline;
-		float: right;
-		margin-right: 20px;
-		width: 120px;
-		height: 60px;
-		background-color: blue;
+	label {
+		height: 21px;
+		line-height: 21px;
+	}
+	input:not([type="button"]) {
+		height: 15px;
+		line-height: 15px;
+		padding: 2px;
+		border-width: 1px; 
+	}
+	input[type="button"],button {
+		height: 21px;
+		line-height: 15px;
+		padding: 2px 6px;
+		border: 1px solid #CCC;
+		background-color: rgb(221,221,221);
 	}
 </style>
 <body>
-	<div class="container">
-		<div class="left">
-
-		</div>
-		<div class="right">
-
-		</div>
-	</div>
+	<form>
+		<label for="name">Name:</label>
+		<input type="text" name="name" placeholder="Please fill your name!">
+		<label for="password">Password:</label>
+		<input type="password" name="password" placeholder="Please fill your Password!">
+		<!-- <input value="login" type="button"> -->
+		<button>login</button>
+	</form>
 </body>
 </html>

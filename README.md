@@ -102,15 +102,17 @@ Content here
 <img src="images/test1.png" alt="当图片放在 a 标签内 会在IE上出现蓝色边框" width="200" height="100"><br />
 Hack：给图片加border:0;或者border:none;<br />
 Hack_Code:<br />
-<img src="images/test1_code.png" alt="Hack: 给图片加border:0;或者border:none;"><br />
+<img src="images/test1_code.png" alt="Hack: 给图片加border:0;或者border:none;">
 
 ### 2. 图片间隙(所有游览器)
 问题描述：img标签嵌套在其他标签(a,div等等)中会产生3-6px的间隙<br />
-示例图片：<br />
-<img src="images/test2.png" alt="示例2-img标签嵌套在其他标签(a,div等等)中会产生3-6px的间隙" width="200" height="100"><br />
+嵌套在a标签中示例图片：<br />
+<img src="images/test2.png" alt="示例2-img标签嵌套在a标签中会产生3-6px的间隙" width="200" height="100"><br />
+嵌套在div标签中示例图片：<br />
+<img src="images/test2_div.png" alt="示例2-img标签嵌套在div标签中会产生3-6px的间隙" width="289" height="160"><br />
 Hack: 给图片设置 display:block;或者 设置浮动(浮动会产生一个块级元素)<br />
 Hack_Code: <br />
-<img src="images/test2_code.png" alt="Hack: 给图片设置 display:block;或者 设置浮动(浮动会产生一个块级元素)"><br />
+<img src="images/test2_code.png" alt="Hack: 给图片设置 display:block;或者 设置浮动(浮动会产生一个块级元素)">
 
 ### 3. 双倍浮向(双倍边距) (IE6)
 问题描述：当IE6及更低版本游览器在解析浮动元素时，会错误的把浮向边边界(margin)加倍显示。<br />
@@ -120,16 +122,27 @@ IE6下示例图片：<br />
 <img src="images/test3_ie6.png" alt="当IE6及更低版本游览器在解析浮动元素时，会错误的把浮向边边界(margin)加倍显示。" width="360" height="60"><br />
 Hack: 给浮动元素添加声明 _display:inline(_只针对IE6输出此行) <br />
 Hack_Code:<br />
-<img src="images/test3_code.png" alt="Hack: 给浮动元素添加声明 _display:inline(_只针对IE6输出此行)"><br />
+<img src="images/test3_code.png" alt="Hack: 给浮动元素添加声明 _display:inline(_只针对IE6输出此行)">
 
-### 4. 默认高低(IE6 IE7)
-问题描述：在IE7及以下版本中，部分块元素拥有默认高度(16-20px左右)；
-Hack1: 给元素添加声明 *font-siez:0;(*只针对IE7及以下版本生效)
-Hack2: 给元素添加声明 *overflow:hidden
+### 4. 默认高低(IE6) 
+问题描述：在IE6版本中，部分块元素拥有默认高度(16-20px左右)；<br />
+正常示例图片:<br />
+<img src="images/test4_normal.png" alt="在IE6版本中，部分块元素拥有默认高度(16-20px左右)" width="360" height="30"><br>
+IE6下示例图片：<br />
+<img src="images/test4_ie6.png" width="360" height="30"><br>
+Hack1: 给元素添加声明 _font-siez:0;<br>
+Hack1模式IE6中显示仍比正常游览器粗，示例图片：<br>
+<img src="images/test4_ie6_font_size.png" width="300" height="30"><br>
+Hack2: 给元素添加声明 _overflow:hidden <br>
+Hack_Code:<br>
+<img src="images/test4_code.png" alt="给元素添加声明 _overflow:hidden">
 
-### 5.表单元素行高对齐不一致
-问题描述：表单元素行高对齐方式不一致
-Hack: 给表单元素添加声明 float:left;
+### 5.表单元素行高对齐不一致(所有游览器)
+问题描述：表单元素行高对齐方式不一致<br>
+Hack: 给表单元素添加声明 float:left;<br>
+Notice:设置浮动之后仍然会有FireFox，IE11 与其他现代游览器不一致，可以设置label,input,button等元素的内容高度，border,padding与chrome,opera等游览器看齐！仍然需要注意的是：这个方法不支持IE11以下版本IE游览器！<br>
+Hack_Code:<br>
+<img src="images/test5_code.png">
 
 ### 6.百分比bug
 问题描述：在IE7及以下版本中解析百分比时，会按四舍五入方式计算从而导致50%加50%大于100%的情况。（也会受到系统影响）
